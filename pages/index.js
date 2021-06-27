@@ -1,5 +1,5 @@
 import Head from "next/head";
-import FixedMenuLayout from "@/components/SemanticLayoutExample";
+import UploadForm from "@/components/UploadForm";
 import styles from "@/styles/Home.module.css";
 
 export default function Home() {
@@ -12,19 +12,9 @@ export default function Home() {
           <link rel="icon" href="/favicon.ico" />
         </Head>
         <main className={styles.main}>
-          <h1 className={styles.title}>
-            <a href="https://nextjs.org">Next.js! </a>with Semantic-UI
-          </h1>
-          <p className={styles.description}>
-            Scroll to see the Semantic-UI layout
-          </p>
-          <br />
-          <code className={styles.code}>
-            Don't forget to edit <b>index.js </b>later
-          </code>
+          <UploadForm />
         </main>
       </div>
-      <FixedMenuLayout />
     </>
   );
 }
