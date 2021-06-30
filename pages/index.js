@@ -7,8 +7,8 @@ import PageFooter from "@/components/PageFooter/PageFooter"
 export default function Home() {
   return (
     <>
-      <div className={styles.container}>
-      </div>
+      {/* <div className={styles.container}>
+      </div> */}
       <PageHeader />
       <FixedMenuLayout />
       <PageFooter />
