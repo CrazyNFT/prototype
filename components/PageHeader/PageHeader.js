@@ -11,11 +11,11 @@ const PageHeader = (props) => {
   const [show, setShow] = React.useState("block");
 
   // WALLET CONNECTED STATUS STATE VARIABLES
-  const [connected,setConnectedStatus] = React.useState(false);
+  let [connected,setConnectedStatus] = React.useState(false);
 
   // CALL THIS FUNCTION TO TOGGLE WALLET CONNECTED STATUS
   let toggleConnected = () =>{
-    setConnectedStatus(!connected)
+    setConnectedStatus(connected)
   }
   
   
@@ -30,8 +30,8 @@ const PageHeader = (props) => {
         <Menu.Item className="headerMenus" as="a">Contact Us</Menu.Item>               
       </Container>
       
-      <Menu.Item  className="headerMenus"  as="a" align="right" onClick={()=>MetaMask()}>
-        {connected?"Disconnect Wallet":"Connect Wallet"}
+      <Menu.Item  className="headerMenus"  as="a" align="right" onClick={async()=>{connected=await MetaMask(); toggleConnected(); }}>
+        {connected?"Connected":"Connect Wallet"}
         </Menu.Item>
       <Modal
         basic

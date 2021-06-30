@@ -10,20 +10,13 @@ import {
   Menu,
   Segment,
 } from "semantic-ui-react";
-import Card1 from "./Card1";
-import Card2 from "./Card2";
+import { useRouter } from 'next/router';
+import HomePage from "@/components/HomePage/HomePage";
 
-const FixedMenuLayoutFooter = () => (
+
+const FixedMenuLayoutFooter = () => {const router = useRouter(); return(
   <div>
-
-    <Container text style={{ marginTop: "7em", textAlign: "center" }}>
-      <Card1 />
-      <br />
-      <br />
-      <br />
-      <Card2 />
-    </Container>
-
+    <HomePage />
     <Segment
       inverted
       vertical
@@ -70,11 +63,17 @@ const FixedMenuLayoutFooter = () => (
         <Divider inverted section />
         <Container textAlign="center">
         <h1>CrazyNFT</h1>
-        <h5>Beta version</h5>
+        <h5>
+          <i class="youtube play link icon" onClick={()=>router.push("https://www.youtube.co.in")}></i>
+          <i class="twitter link icon" onClick={()=>router.push("https://www.youtube.co.in")}></i>
+          <i class="linkedin link icon" onClick={()=>router.push("https://www.youtube.co.in")}></i>
+          <i class="github link icon" onClick={()=>router.push("https://www.youtube.co.in")}></i>
+          <i class="medium link icon" onClick={()=>router.push("https://www.youtube.co.in")}></i>
+        </h5>
       </Container>
       </Container>
     </Segment>
   </div>
-);
+);}
 
 export default FixedMenuLayoutFooter;

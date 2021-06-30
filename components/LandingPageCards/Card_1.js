@@ -12,13 +12,12 @@ const Card1 = () => {
           
         <Header as='h2' icon textAlign='center' >
              
-              <Header.Content>On the mission to bring <br/>
-              NFTs to the mainstream</Header.Content>
+              <Header.Content>When exressing your creativity is free, <br/>
+              why should gas and transaction fee stop you?</Header.Content>
               </Header>
              <Header as='h5' icon textAlign='center'>
              <Header.Content>
-             Airnfts is the NFT marketplace built on Binance Smart Chain focusing
-             highly on user experience and ease of use to Create, Buy, Sell and use NFTs.
+             CrazyNFT is the first NFT marketplace, which allows you to create and mint NFTs for free. <br />Built with love, from India, on Polygon
              </Header.Content>
             </Header>
         
@@ -28,26 +27,26 @@ const Card1 = () => {
               <Grid.Column>
               <Card
             image='https://react.semantic-ui.com/images/avatar/large/matthew.png'
-            header='Create NFT with ease'
+            header='Create NFTs for free'
            
-            description='One click and your NFT is created. Set a price and start earning, NFT auction will come next.'
+            description='One click, no fee or gas, just create your NFTs and later give us a part from the profit you make'
             /></Grid.Column>
               
               <Grid.Column>
               <Card
             image='https://react.semantic-ui.com/images/avatar/large/matthew.png'
-            header='AIRT Farming & Royalties'
+            header='Earn CRZY Tokens!'
            
-            description='You can earn AIRT Token for selling and buying NFTs. Use royalties for secondary sales.'
+            description='For every successful Sale/Purchase or Premium listing, get CRZY tokens airdropped into your wallet'
             
           /></Grid.Column>
         
          <Grid.Column>
               <Card
             image='https://react.semantic-ui.com/images/avatar/large/matthew.png'
-            header='NFT Launchpad'
+            header='Get your own marketplace!'
            
-            description='For those artists that don&apos;t have big following there will be launchpad to give exposure.'
+            description='Create your own collectibles section, and make your arts globally recognized'
             /></Grid.Column>
            </Grid.Row>
           </Grid>
