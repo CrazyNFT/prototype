@@ -10,6 +10,8 @@ import {
   Menu,
   Segment,
 } from "semantic-ui-react";
+import Card1 from "./Card1";
+import Card2 from "./Card2";
 
 const FixedMenuLayout = () => (
   <div>
@@ -46,17 +48,11 @@ const FixedMenuLayout = () => (
     </Menu>
 
     <Container text style={{ marginTop: "7em", textAlign: "center" }}>
-      <Header as="h1">Semantic UI React Fixed Template</Header>
-      <p>This is a basic fixed menu template using fixed size containers.</p>
-      <p>
-        A text container is used for the main container, which is useful for
-        single column layouts.
-      </p>
-
-      <Image
-        src="https://source.unsplash.com/random"
-        style={{ marginTop: "2em" }}
-      />
+      <Card1 />
+      <br />
+      <br />
+      <br />
+      <Card2 />
     </Container>
 
     <Segment
