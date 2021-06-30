@@ -4,7 +4,18 @@ import React from "react";
 import UploadForm from "@/components/UploadForm/UploadForm";
 import MetaMask from "@/components/Wallets/MetaMask";
 
-const PageHeader = () => {const [open, setOpen] = React.useState(false); return(
+const PageHeader = () => {
+  const [open, setOpen] = React.useState(false);
+
+  // WALLET CONNECTED STATUS STATE VARIABLES
+  const [connected,setConnectedStatus] = React.useState(false);
+
+  // CALL THIS FUNCTION TO TOGGLE WALLET CONNECTED STATUS
+  let toggleConnected = () =>{
+    setConnectedStatus(!connected)
+  }
+
+ return(
 <Menu fixed="top" borderless>
       <Container>
         <Menu.Item as="a" header>
@@ -14,7 +25,9 @@ const PageHeader = () => {const [open, setOpen] = React.useState(false); return(
         <Menu.Item as="a">Contact Us</Menu.Item>        
       </Container>
       
-      <Menu.Item as="a" align="right" onClick={()=>MetaMask()}>Connect Wallet</Menu.Item>
+      <Menu.Item as="a" align="right" onClick={()=>MetaMask()}>
+        {connected?"Disconnect Wallet":"Connect Wallet"}
+        </Menu.Item>
       <Modal
         basic
         onClose={() => setOpen(false)}
