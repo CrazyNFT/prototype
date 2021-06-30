@@ -1,11 +1,14 @@
 /* eslint-disable jsx-a11y/alt-text */
 import {Dropdown, Menu, Container, Image, Button, Modal, Header, Icon} from "semantic-ui-react";
-import React from "react";
+import React, { useEffect } from "react";
 import UploadForm from "@/components/UploadForm/UploadForm";
 import MetaMask from "@/components/Wallets/MetaMask";
 
-const PageHeader = () => {
+const PageHeader = (props) => {
   const [open, setOpen] = React.useState(false);
+
+  // SHOW HEADER STATE
+  const [show, setShow] = React.useState("block");
 
   // WALLET CONNECTED STATUS STATE VARIABLES
   const [connected,setConnectedStatus] = React.useState(false);
@@ -14,18 +17,20 @@ const PageHeader = () => {
   let toggleConnected = () =>{
     setConnectedStatus(!connected)
   }
-
+  
+  
  return(
-<Menu fixed="top" borderless>
+   <>
+<Menu stackable fixed="top" borderless>
       <Container>
         <Menu.Item as="a" header>
           <h1>CrazyNFT</h1>
         </Menu.Item>
-        <Menu.Item as="a">Home</Menu.Item> 
-        <Menu.Item as="a">Contact Us</Menu.Item>        
+        <Menu.Item className="headerMenus" as="a">Home</Menu.Item> 
+        <Menu.Item className="headerMenus" as="a">Contact Us</Menu.Item>               
       </Container>
       
-      <Menu.Item as="a" align="right" onClick={()=>MetaMask()}>
+      <Menu.Item  className="headerMenus"  as="a" align="right" onClick={()=>MetaMask()}>
         {connected?"Disconnect Wallet":"Connect Wallet"}
         </Menu.Item>
       <Modal
@@ -34,13 +39,16 @@ const PageHeader = () => {
         onOpen={() => setOpen(true)}
         open={open}
         size='small'
-        trigger={<Menu.Item as="a" align="right">Upload</Menu.Item>}
+        trigger={<Menu.Item  className="headerMenus"  as="a" align="right">Upload</Menu.Item>}
       >
         <Modal.Content>
           <UploadForm />
         </Modal.Content>
       </Modal>
+      <Menu.Item  className="headerMenus"  style={{width:'60px'}} as="div" align="right"></Menu.Item>
+      
       </Menu>
+      </>
 )}
 export default PageHeader
 

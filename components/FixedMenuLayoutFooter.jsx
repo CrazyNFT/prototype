@@ -13,7 +13,7 @@ import {
 import Card1 from "./Card1";
 import Card2 from "./Card2";
 
-const FixedMenuLayout = () => (
+const FixedMenuLayoutFooter = () => (
   <div>
 
     <Container text style={{ marginTop: "7em", textAlign: "center" }}>
@@ -68,24 +68,13 @@ const FixedMenuLayout = () => (
         </Grid>
 
         <Divider inverted section />
-        <Image centered size="mini" src="https://source.unsplash.com/random" />
-        <List horizontal inverted divided link size="small">
-          <List.Item as="a" href="#">
-            Site Map
-          </List.Item>
-          <List.Item as="a" href="#">
-            Contact Us
-          </List.Item>
-          <List.Item as="a" href="#">
-            Terms and Conditions
-          </List.Item>
-          <List.Item as="a" href="#">
-            Privacy Policy
-          </List.Item>
-        </List>
+        <Container textAlign="center">
+        <h1>CrazyNFT</h1>
+        <h5>Beta version</h5>
+      </Container>
       </Container>
     </Segment>
   </div>
 );
 
-export default FixedMenuLayout;
+export default FixedMenuLayoutFooter;

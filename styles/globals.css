@@ -14,3 +14,18 @@ a {
 * {
   box-sizing: border-box;
 }
+.ui.sidebar.sidebarAdminPanel.menu {
+  margin-top: 65px !important;
+}
+.ui.button.sidebarToggle {
+  position: fixed;
+  z-index: 999;
+  right: 0;
+  top: 0;
+  margin: 10px;
+}
+@media only screen and (max-width: 800px){
+.item.headerMenus {
+  display: none !important;
+}
+}
