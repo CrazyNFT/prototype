@@ -24,7 +24,7 @@ const PageHeader = (props) => {
 <Menu stackable fixed="top" borderless>
       <Container>
         <Menu.Item as="a" header>
-          <h1>CrazyNFT</h1>
+          <h1><img src="/logo.png" alt="CrazyNFT" width="75" height="41.528"></img></h1>
         </Menu.Item>
         <Menu.Item className="headerMenus" as="a">Home</Menu.Item> 
         <Menu.Item className="headerMenus" as="a">Contact Us</Menu.Item>               
