@@ -13,9 +13,16 @@ const PageHeader = (props) => {
   // WALLET CONNECTED STATUS STATE VARIABLES
   let [connected,setConnectedStatus] = React.useState(false);
 
+   // WALLET CONNECTED ACCOUNT
+   let [account,setAccount] = React.useState("");
+
   // CALL THIS FUNCTION TO TOGGLE WALLET CONNECTED STATUS
-  let toggleConnected = () =>{
+  let toggleConnected = async () =>{
     setConnectedStatus(connected)
+    const accounts = await window.web3.eth.getAccounts();
+    if(connected){
+      setAccount(accounts[0]);
+    }
   }
   
   
@@ -31,7 +38,7 @@ const PageHeader = (props) => {
       </Container>
       
       <Menu.Item  className="headerMenus"  as="a" align="right" onClick={async()=>{connected=await MetaMask(); toggleConnected(); }}>
-        {connected?"Connected":"Connect Wallet"}
+        {connected?`${account}`:"Connect Wallet"}
         </Menu.Item>
       <Modal
         basic
