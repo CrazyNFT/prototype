@@ -1,6 +1,5 @@
 import Head from "next/head";
 import FixedMenuLayoutFooter from "@/components/FixedMenuLayoutFooter/FixedMenuLayoutFooter";
-import styles from "@/styles/Home.module.css";
 import PageHeader from "@/components/PageHeader/PageHeader"
 // import PageFooter from "@/components/PageFooter/PageFooter"
 import SideNav from "@/components/SideNav/SideNav";
@@ -17,6 +16,10 @@ export default function Home() {
   }
   return (
     <>
+    <Head>
+        <title>CrazyNFT Prototype</title>
+        <link rel="icon" href="/favicon.ico" />
+      </Head>
       {/* <div className={styles.container}>
       </div> */}
       
