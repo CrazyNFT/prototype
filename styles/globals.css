@@ -29,3 +29,27 @@ a {
   display: none !important;
 }
 }
+.card {
+  border-radius: 25px;
+  padding: 25px 15px;
+  margin: 50px 0;
+  width: 300px;
+  box-shadow: 0 2px 5px #ccc;
+  text-align: center;
+}
+
+.name {
+  color: #2d3436;
+}
+
+.card img {
+  margin: 10px 20px 5px 10px;
+}
+
+.circle-img {
+  border-radius: 10%;
+  border: 7px solid #dfe6e9;
+  width: 200px;
+  height: 140px;
+  align-self: center;
+}
