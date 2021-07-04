@@ -24,7 +24,7 @@ const PageHeader = (props) => {
       setAccount(accounts[0]);
     }
   }
-  
+
   
  return(
    <>

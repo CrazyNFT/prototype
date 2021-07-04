@@ -20,7 +20,7 @@ export default function Home() {
       {/* <div className={styles.container}>
       </div> */}
       
-      <SideNav visibility={sidebarVisibility} togglesidebar={togglesidebar} />
+      {/* <SideNav visibility={sidebarVisibility} togglesidebar={togglesidebar} /> */}
       <PageHeader togglesidebar={togglesidebar} />
       <FixedMenuLayoutFooter />  
       {/* <PageFooter /> */}
