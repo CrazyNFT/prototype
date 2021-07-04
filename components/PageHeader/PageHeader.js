@@ -30,10 +30,9 @@ const PageHeader = (props) => {
    <>
 <Menu stackable fixed="top" borderless>
       <Container>
-        <Menu.Item as="a" header>
-          <h1><img src="/logo.png" alt="CrazyNFT" width="75" height="41.528"></img></h1>
-        </Menu.Item>
+          <h1 style={{margin: 10,}}><Image src="/logo.png" alt="CrazyNFT" width="75" height="41.528" centered></Image></h1>
         <Menu.Item className="headerMenus" as="a">Home</Menu.Item> 
+        <Menu.Item className="headerMenus" as="a">Marketplace</Menu.Item> 
         <Menu.Item className="headerMenus" as="a">Contact Us</Menu.Item>               
       </Container>
       
