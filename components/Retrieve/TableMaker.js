@@ -3,10 +3,10 @@ import { Container, Grid } from "semantic-ui-react";
 import NFTCard from "./NFTCard";
 import contacts from "../extras/contacts";
 
-
-const TableMaker = () => {return(
-<div>
-      <Grid columns={3} relaxed>
+const TableMaker = () => {
+  return (
+    <div style={{ marginTop: "84px" }}>
+      <Grid columns={3} relaxed style={{ margin: "auto" }}>
         <Grid.Row>
           <Grid.Column>
             <NFTCard
@@ -29,9 +29,8 @@ const TableMaker = () => {return(
               details={contacts[2].details}
             />
           </Grid.Column>
-        
-          </Grid.Row>
-          <Grid.Row>
+        </Grid.Row>
+        <Grid.Row>
           <Grid.Column>
             <NFTCard
               name={contacts[3].name}
@@ -53,8 +52,9 @@ const TableMaker = () => {return(
               details={contacts[5].details}
             />
           </Grid.Column>
-          </Grid.Row>
+        </Grid.Row>
       </Grid>
-      </div>
-)}
-export default TableMaker
+    </div>
+  );
+};
+export default TableMaker;
