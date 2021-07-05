@@ -4,6 +4,7 @@ import PageHeader from "@/components/PageHeader/PageHeader";
 import SideNav from "@/components/SideNav/SideNav";
 import { useState } from "react";
 import TableMaker from "@/components/Retrieve/TableMaker";
+import FixedMenuLayoutFooter from "@/components/FixedMenuLayoutFooter/FixedMenuLayoutFooter";
 
 export default function Home() {
   // SIDEBAR VISIBILITY STATE
@@ -25,6 +26,7 @@ export default function Home() {
       {/* <SideNav visibility={sidebarVisibility} togglesidebar={togglesidebar} /> */}
       <PageHeader togglesidebar={togglesidebar} />
       <TableMaker />
+      <FixedMenuLayoutFooter />
     </>
   );
 }

@@ -2,6 +2,7 @@ import Head from "next/head";
 import FixedMenuLayoutFooter from "@/components/FixedMenuLayoutFooter/FixedMenuLayoutFooter";
 import PageHeader from "@/components/PageHeader/PageHeader";
 // import PageFooter from "@/components/PageFooter/PageFooter"
+import HomePage from "@/components/HomePage/HomePage";
 import SideNav from "@/components/SideNav/SideNav";
 import { useState } from "react";
 
@@ -22,9 +23,9 @@ export default function Home() {
       </Head>
       {/* <div className={styles.container}>
       </div> */}
-
       {/* <SideNav visibility={sidebarVisibility} togglesidebar={togglesidebar} /> */}
       <PageHeader togglesidebar={togglesidebar} />
+      <HomePage />
       <FixedMenuLayoutFooter />
       {/* <PageFooter /> */}
     </>

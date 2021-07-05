@@ -12,13 +12,11 @@ import {
   Segment,
 } from "semantic-ui-react";
 import { useRouter } from "next/router";
-import HomePage from "@/components/HomePage/HomePage";
 
 const FixedMenuLayoutFooter = () => {
   const router = useRouter();
   return (
     <div>
-      <HomePage />
       <Segment
         inverted
         vertical
