@@ -1,9 +1,9 @@
 import Head from "next/head";
-import FixedMenuLayoutFooter from "@/components/FixedMenuLayoutFooter/FixedMenuLayoutFooter";
 import PageHeader from "@/components/PageHeader/PageHeader";
 // import PageFooter from "@/components/PageFooter/PageFooter"
 import SideNav from "@/components/SideNav/SideNav";
 import { useState } from "react";
+import TableMaker from "@/components/Retrieve/TableMaker";
 
 export default function Home() {
   // SIDEBAR VISIBILITY STATE
@@ -17,16 +17,14 @@ export default function Home() {
   return (
     <>
       <Head>
-        <title>CrazyNFT Prototype</title>
+        <title>CrazyNFT MarketPlace</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
       {/* <div className={styles.container}>
       </div> */}
-
       {/* <SideNav visibility={sidebarVisibility} togglesidebar={togglesidebar} /> */}
       <PageHeader togglesidebar={togglesidebar} />
-      <FixedMenuLayoutFooter />
-      {/* <PageFooter /> */}
+      <TableMaker />
     </>
   );
 }
