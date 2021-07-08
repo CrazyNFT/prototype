@@ -3,7 +3,7 @@ import React from "react";
 const IPFS = require('ipfs-mini')
 const ipfs = new IPFS({host: 'ipfs.infura.io', post: 5001, protocol: 'https'});
 const buffer = require('buffer');
-
+let fs = require('fs');
 
 
 import {
@@ -136,7 +136,9 @@ export default function UploadForm() {
       //console.info(cid)
         }
   };
-
+let append = async(hash) => {
+  
+}
   return (
     <Container>
       <Grid textAlign="center" verticalAlign="middle">
@@ -157,6 +159,7 @@ export default function UploadForm() {
                   authorId: user.uid,
                 };
                 console.log(NFT);
+                append(hash);
                 ipfs.add(Buffer.from(JSON.stringify(NFT)), (err, hash) => {
                   if(err){
                     return console.log(err);
@@ -266,6 +269,7 @@ export default function UploadForm() {
                 header="Success"
                 content={"Your NFT has been submitted for Approval, check the console for hash"}
               />
+              
             </Segment>
           </Form>
         </Grid.Column>
