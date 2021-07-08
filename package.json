@@ -9,7 +9,13 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "buffer": "^6.0.3",
+    "carbites": "^1.0.6",
+    "ipfs-api": "^26.1.2",
+    "ipfs-core": "^0.8.0",
+    "ipfs-mini": "^1.1.5",
     "next": "11.0.1",
+    "nft.storage": "^3.0.1",
     "react": "17.0.2",
     "react-dom": "17.0.2",
     "react-hook-form": "^7.9.0",
