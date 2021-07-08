@@ -136,9 +136,15 @@ export default function UploadForm() {
       //console.info(cid)
         }
   };
-let append = async(hash) => {
-  
-}
+
+
+
+// TODO: retrive the json file from "ipfs://{hash} by using the passed hash value, and append it to @/components/extras/listed.json"
+// let append = async(hash) => {}
+
+
+
+
   return (
     <Container>
       <Grid textAlign="center" verticalAlign="middle">
