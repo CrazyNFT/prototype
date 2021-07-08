@@ -5,7 +5,7 @@ import contacts from "../extras/contacts";
 
 const TableMaker = () => {
   return (
-    <div style={{ marginTop: "84px" }}>
+    <div style={{ margin: "84px 320px" }}>
       <Grid columns={3} relaxed style={{ margin: "auto" }}>
         <Grid.Row>
           <Grid.Column>

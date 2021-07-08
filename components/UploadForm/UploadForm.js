@@ -264,7 +264,7 @@ export default function UploadForm() {
               <Message
                 success
                 header="Success"
-                content={"Your NFT has been submitted for Approval"}
+                content={"Your NFT has been submitted for Approval, check the console for hash"}
               />
             </Segment>
           </Form>

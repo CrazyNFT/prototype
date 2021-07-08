@@ -70,7 +70,7 @@ const PageHeader = (props) => {
             toggleConnected();
           }}
         >
-          {connected ? `${account}` : "Connect Wallet"}
+          {connected ? `Connected to: ${account.substring(0,6)+"..."+account.substring(account.length-4)}` : "Connect Wallet"}
         </Menu.Item>
         <Modal
           basic
@@ -85,7 +85,7 @@ const PageHeader = (props) => {
           }
         >
           <Modal.Content>
-            <UploadForm />
+            <UploadForm/>
           </Modal.Content>
         </Modal>
         <Menu.Item
