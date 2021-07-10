@@ -3,13 +3,13 @@ import React from "react";
 const IPFS = require('ipfs-mini')
 const ipfs = new IPFS({host: 'ipfs.infura.io', post: 5001, protocol: 'https'});
 const buffer = require('buffer');
-<<<<<<< HEAD
+
 const ethers = require('ethers');
 
 
-=======
-let fs = require('fs');
->>>>>>> a06d8729936a97db15004d7727f31b67f65bce14
+
+//let fs = require('fs');
+//a06d8729936a97db15004d7727f31b67f65bce14
 
 
 import {
@@ -207,7 +207,7 @@ export default function UploadForm() {
                   authorId: user.uid,
                 };
                 console.log(NFT);
-                append(hash);
+                //append(hash);
                 ipfs.add(Buffer.from(JSON.stringify(NFT)), (err, hash) => {
                   if(err){
                     return console.log(err);
