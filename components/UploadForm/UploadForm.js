@@ -1,8 +1,10 @@
 import React from "react";
-//import { NFTStorage, File } from 'nft.storage'
+
 const IPFS = require('ipfs-mini')
 const ipfs = new IPFS({host: 'ipfs.infura.io', post: 5001, protocol: 'https'});
 const buffer = require('buffer');
+const ethers = require('ethers');
+
 
 
 
@@ -19,9 +21,15 @@ import {
 import { useForm, Controller } from "react-hook-form";
 import styles from "@/styles/UploadForm.module.css";
 
-const apiKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJkaWQ6ZXRocjoweDRkMTczODljMTA4YTcxZUE2QTQwODhlMjY1NzZEMjM3MDkwMTQ3MTAiLCJpc3MiOiJuZnQtc3RvcmFnZSIsImlhdCI6MTYyNTY2NzI3MjgyNCwibmFtZSI6IlRlc3QifQ.KHJGw90Yd0gwBw_sMBczNEuiMP1GpyyVbHOEVaPEkbo'
-//const client = new NFTStorage({ token: apiKey })
 
+
+function httpGet(theUrl)
+{
+    var xmlHttp = new XMLHttpRequest();
+    xmlHttp.open( "GET", theUrl, false ); // false for synchronous request
+    xmlHttp.send( null );
+    return xmlHttp.responseText;
+}
 // Dummy user data
 const user = {
   uid: "9b1deb4d-3b7d-4bad-9bdd-2b0d7b3dcb6d",
@@ -86,6 +94,8 @@ function base64ArrayBuffer(arrayBuffer) {
 export default function UploadForm() {
   
   const { handleSubmit, control } = useForm();
+  let provider = new ethers.providers.Web3Provider(window.web3.currentProvider);
+  let signer = provider.getSigner();
   const [file, setFile] = React.useState({
     obj: "",
     error: false,
@@ -93,6 +103,34 @@ export default function UploadForm() {
   });
   const [success, setSuccess] = React.useState(false);
   const validFileTypes = ["image/jpeg", "image/jpg", "image/png", "image/gif"];
+
+  async function getVoucher(tokenId, uri, minPrice=0, signer){
+    const chainId = "80001";
+        const domain = {
+          name: "LazyNFT-Voucher",
+          version: "1",
+          verifyingContract: "0x138fFdDd2efCa4992AE8bBB8C8d74Ced6Db2AF4F",
+          chainId,
+        }
+    
+    
+        const voucher = { tokenId, uri, minPrice }
+        
+        const types = {
+          NFTVoucher: [
+            {name: "tokenId", type: "uint256"},
+            {name: "minPrice", type: "uint256"},
+            {name: "uri", type: "string"},  
+          ]
+        }
+        const signature = await signer._signTypedData(domain, types, voucher)
+        return signature;
+    
+        // console.log( {
+        //   ...voucher,
+        //   signature,
+        // })
+    }
 
   const handleFile = (event) => {
     
@@ -122,7 +160,7 @@ export default function UploadForm() {
         error: false,
         errorMessage: "",
       });
-      const data = "STUFF";
+      
     //   const prefix = `data:${event.target.files[0].type};base64,`;
     //  const buf = buffer.Buffer(String(reader.result));
     //  const base64buf = prefix + base64ArrayBuffer(buf);
@@ -146,7 +184,7 @@ export default function UploadForm() {
               const prefix = `data:${file.obj.type};base64,`;
               const buf = buffer.Buffer(String(file.obj));
               const base64buf = prefix + base64ArrayBuffer(buf);
-              ipfs.add(buf, (err, hash) => {
+              ipfs.add(base64buf, (err, hash) => {
                 if(err){
                   return console.log(err);
                 }
@@ -163,6 +201,9 @@ export default function UploadForm() {
                   }
                   
                   console.log(hash);
+                  getVoucher(1, hash, 0, signer).then(function(result){
+                    console.log(result);
+                  });
                   
                 });
                 
