@@ -3,9 +3,13 @@ import React from "react";
 const IPFS = require('ipfs-mini')
 const ipfs = new IPFS({host: 'ipfs.infura.io', post: 5001, protocol: 'https'});
 const buffer = require('buffer');
+<<<<<<< HEAD
 const ethers = require('ethers');
 
 
+=======
+let fs = require('fs');
+>>>>>>> a06d8729936a97db15004d7727f31b67f65bce14
 
 
 import {
@@ -175,6 +179,14 @@ export default function UploadForm() {
         }
   };
 
+
+
+// TODO: retrive the json file from "ipfs://{hash} by using the passed hash value, and append it to @/components/extras/listed.json"
+// let append = async(hash) => {}
+
+
+
+
   return (
     <Container>
       <Grid textAlign="center" verticalAlign="middle">
@@ -195,6 +207,7 @@ export default function UploadForm() {
                   authorId: user.uid,
                 };
                 console.log(NFT);
+                append(hash);
                 ipfs.add(Buffer.from(JSON.stringify(NFT)), (err, hash) => {
                   if(err){
                     return console.log(err);
@@ -305,8 +318,9 @@ export default function UploadForm() {
               <Message
                 success
                 header="Success"
-                content={"Your NFT has been submitted for Approval"}
+                content={"Your NFT has been submitted for Approval, check the console for hash"}
               />
+              
             </Segment>
           </Form>
         </Grid.Column>
