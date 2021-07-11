@@ -3,7 +3,7 @@ import React from "react";
 const IPFS = require('ipfs-mini')
 const ipfs = new IPFS({host: 'ipfs.infura.io', post: 5001, protocol: 'https'});
 const buffer = require('buffer');
-
+const fetch = require("node-fetch");
 const ethers = require('ethers');
 
 
@@ -27,12 +27,12 @@ import styles from "@/styles/UploadForm.module.css";
 
 
 
-function httpGet(theUrl)
-{
-    var xmlHttp = new XMLHttpRequest();
-    xmlHttp.open( "GET", theUrl, false ); // false for synchronous request
-    xmlHttp.send( null );
-    return xmlHttp.responseText;
+async function fetchAsync (url) {
+  
+  
+  let response = await fetch(url);
+  let data = await response.json();
+  return data;
 }
 // Dummy user data
 const user = {
@@ -212,11 +212,35 @@ export default function UploadForm() {
                   if(err){
                     return console.log(err);
                   }
+                  // window.web3.eth.getAccounts().then(function(result){
+                  //   console.log(result)
+                  // })
                   
-                  console.log(hash);
-                  getVoucher(1, hash, 0, signer).then(function(result){
-                    console.log(result);
-                  });
+                  window.web3.eth.getAccounts().then(function(account){
+                    fetchAsync(`http://localhost:8000/createvoucher.php?uri=${hash}&price=${data["nftPrice"]}&address=${account[0]}`).then(function(idresult){
+                    const id = idresult["id"]
+
+                    console.log(idresult);
+                    if(idresult.hasOwnProperty('id')){
+                    getVoucher(1, hash, 0, signer).then(function(result){
+                      console.log(result);
+                      fetchAsync(`http://localhost:8000/addvoucher.php?id=${id}&voucher=${result}`).then(function(final){
+                      console.log(final)
+                  
+                  }
+                  )
+                    });
+                  } else {
+                    console.log("Voucher Already exists");
+                  }
+                    
+                  }
+                  )
+                  })
+                  
+                  
+                  
+                  
                   
                 });
                 
