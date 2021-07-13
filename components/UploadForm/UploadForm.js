@@ -217,14 +217,14 @@ export default function UploadForm() {
                   // })
                   
                   window.web3.eth.getAccounts().then(function(account){
-                    fetchAsync(`http://localhost:8000/createvoucher.php?uri=${hash}&price=${data["nftPrice"]}&address=${account[0]}`).then(function(idresult){
+                    fetchAsync(`https://crazynft.herokuapp.com/createvoucher.php?uri=${hash}&price=${data["nftPrice"]}&address=${account[0]}`).then(function(idresult){
                     const id = idresult["id"]
 
                     console.log(idresult);
                     if(idresult.hasOwnProperty('id')){
                     getVoucher(1, hash, 0, signer).then(function(result){
                       console.log(result);
-                      fetchAsync(`http://localhost:8000/addvoucher.php?id=${id}&voucher=${result}`).then(function(final){
+                      fetchAsync(`https://crazynft.herokuapp.com/addvoucher.php?id=${id}&voucher=${result}`).then(function(final){
                       console.log(final)
                   
                   }
