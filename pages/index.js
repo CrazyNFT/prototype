@@ -24,7 +24,7 @@ export default function Home() {
       {/* <div className={styles.container}>
       </div> */}
       {/* <SideNav visibility={sidebarVisibility} togglesidebar={togglesidebar} /> */}
-      <PageHeader togglesidebar={togglesidebar} />
+      <PageHeader togglesidebar={togglesidebar} visibility={sidebarVisibility} />
       <HomePage />
       <FixedMenuLayoutFooter />
       {/* <PageFooter /> */}

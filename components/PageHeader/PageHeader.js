@@ -9,14 +9,16 @@ import {
   Modal,
   Header,
   Icon,
+  Grid,
 } from "semantic-ui-react";
 import React, { useEffect } from "react";
 import UploadForm from "@/components/UploadForm/UploadForm";
 import MetaMask from "@/components/Wallets/MetaMask";
+import SideNav from '@/components/SideNav/SideNav'
 
 const PageHeader = (props) => {
   const [open, setOpen] = React.useState(false);
-
+  const [mobile,setMobile] = React.useState(true);
   // SHOW HEADER STATE
   const [show, setShow] = React.useState("block");
 
@@ -34,9 +36,14 @@ const PageHeader = (props) => {
       setAccount(accounts[0]);
     }
   };
-
+  //  var x=true;
+  useEffect(()=>{
+    // console.log(window.matchMedia("max-width('700px')"))
+    setMobile(window.matchMedia("max-width('700px')").matches)
+  })
   return (
     <>
+    <SideNav visibility={props.visibility} togglesidebar={props.togglesidebar}></SideNav>
       <Menu stackable fixed="top" borderless>
         <Container>
           <h1 style={{ margin: 10 }}>
@@ -49,20 +56,26 @@ const PageHeader = (props) => {
             ></Image>
           </h1>
           <Link href="/">
-            <Menu.Item className="headerMenus" as="a">
+            <Menu.Item 
+            style={{display:!mobile?(props.visibility?'flex':'none'):'none'}}
+            as="a">
               Home
             </Menu.Item>
           </Link>
           <Link href="marketplace">
-            <Menu.Item className="headerMenus">Marketplace</Menu.Item>
+            <Menu.Item
+            style={{display:!mobile?(props.visibility?'flex':'none'):'none'}}
+             >Marketplace</Menu.Item>
           </Link>
-          <Menu.Item className="headerMenus" as="a">
+          <Menu.Item 
+            style={{display:!mobile?(props.visibility?'flex':'none'):'none'}}
+            className="headerMenus" as="a">
             Contact Us
           </Menu.Item>
         </Container>
 
         <Menu.Item
-          className="headerMenus"
+            style={{display:!mobile?(props.visibility?'flex':'none'):'none'}}
           as="a"
           align="right"
           onClick={async () => {
@@ -79,7 +92,9 @@ const PageHeader = (props) => {
           open={open}
           size="small"
           trigger={
-            <Menu.Item className="headerMenus" as="a" align="right">
+            <Menu.Item 
+            style={{display:!mobile?(props.visibility?'flex':'none'):'flex'}}
+             as="a" align="right">
               Upload
             </Menu.Item>
           }

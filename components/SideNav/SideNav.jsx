@@ -1,5 +1,5 @@
 import React from 'react'
-import {Menu,Sidebar,Button,Icon, Image,Label } from 'semantic-ui-react'
+import {Menu,Sidebar,Button,Icon, Image,Label, Grid } from 'semantic-ui-react'
 // import {NavLink, useHistory} from 'react-router-dom'
 
 
@@ -24,10 +24,14 @@ const SideNav = (props) => {
   }
    return(
      <>
+     <Grid>
+       <Grid.Column>
     <Button className="sidebarToggle" basic color="black" icon="bars" onClick={props.togglesidebar}></Button>
+    </Grid.Column>
+    </Grid>
      <div className="sidebar">
        
-    <Sidebar
+    {/* <Sidebar
       as={Menu}
       animation='overlay'
       icon='labeled'
@@ -35,7 +39,7 @@ const SideNav = (props) => {
       className='sidebarAdminPanel'
       direction='right'
       vertical
-      visible={props.visibility}
+      // visible={props.visibility}
       width='thin'
       primary
     >
@@ -43,19 +47,22 @@ const SideNav = (props) => {
       <Menu.Item color="red" as='div'>
         <b>CRAZY NFTs</b>
       </Menu.Item>
-      <Menu.Item as='a' onClick={scrollToHome}>
+      <Menu.Item as='a' 
+      href="/"
+      >
         Home
       </Menu.Item>
-      {/* <Menu.Item as='a' onClick={scrollToBlog}>
-        Blogs
-      </Menu.Item> */}
-      <Menu.Item as='a' onClick={scrollToAboutUs}>
-        About Us
-      </Menu.Item>   
-      <Menu.Item as='a' onClick={scrollToContactUs}>
+      <Menu.Item as='a' 
+      href="/marketplace"
+      >
+        Marketplace
+      </Menu.Item>
+      <Menu.Item as='a' 
+      href="/contactus"
+      >
         Contact Us
-      </Menu.Item>      
-    </Sidebar>
+      </Menu.Item>
+    </Sidebar> */}
     </div>
     </>
     )

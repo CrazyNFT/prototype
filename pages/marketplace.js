@@ -2,7 +2,7 @@ import Head from "next/head";
 import PageHeader from "@/components/PageHeader/PageHeader";
 // import PageFooter from "@/components/PageFooter/PageFooter"
 import SideNav from "@/components/SideNav/SideNav";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import TableMaker from "@/components/Retrieve/TableMaker";
 import FixedMenuLayoutFooter from "@/components/FixedMenuLayoutFooter/FixedMenuLayoutFooter";
 
@@ -24,7 +24,7 @@ export default function Home() {
       {/* <div className={styles.container}>
       </div> */}
       {/* <SideNav visibility={sidebarVisibility} togglesidebar={togglesidebar} /> */}
-      <PageHeader togglesidebar={togglesidebar} />
+      <PageHeader togglesidebar={togglesidebar} visibility={sidebarVisibility} />
       <TableMaker />
       <FixedMenuLayoutFooter />
     </>
