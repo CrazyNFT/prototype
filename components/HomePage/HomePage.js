@@ -5,12 +5,8 @@ import Card2 from "@/components/LandingPageCards/Card_2";
 
 
 const HomePage = () => (
-    <Container text style={{ marginTop: "7em", textAlign: "center" }}>
+    <Container text style={{ marginTop: "10em", textAlign: "center" }}>
       <Card1 />
-      <br />
-      <br />
-      <br />
-      <Card2 />
     </Container>
 )
 export default HomePage;
