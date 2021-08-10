@@ -13,6 +13,7 @@
     "carbites": "^1.0.6",
     "ethereumjs-tx": "^2.1.2",
     "ethers": "^5.4.1",
+    "firebase": "^8.9.0",
     "fs": "0.0.1-security",
     "ipfs-api": "^26.1.2",
     "ipfs-core": "^0.8.0",
