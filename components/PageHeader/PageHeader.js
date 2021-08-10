@@ -16,14 +16,20 @@ import UploadForm from "@/components/UploadForm/UploadForm";
 import MetaMask from "@/components/Wallets/MetaMask";
 import SideNav from '@/components/SideNav/SideNav'
 
+import { profile } from '../../services/profile'
+
 const PageHeader = (props) => {
   const [open, setOpen] = React.useState(false);
-  const [mobile,setMobile] = React.useState(true);
+  const [mobile, setMobile] = React.useState(true);
+
   // SHOW HEADER STATE
   const [show, setShow] = React.useState("block");
 
   // WALLET CONNECTED STATUS STATE VARIABLES
   let [connected, setConnectedStatus] = React.useState(false);
+
+  // is user verified
+  const [verified, setVerified] = React.useState(false)
 
   // WALLET CONNECTED ACCOUNT
   let [account, setAccount] = React.useState("");
@@ -34,16 +40,34 @@ const PageHeader = (props) => {
     const accounts = await window.web3.eth.getAccounts();
     if (connected) {
       setAccount(accounts[0]);
+      try{
+        let data = await profile.init(accounts[0])
+        if (data.email && data.emailVerified) {
+          setVerified(true)
+        }
+      } catch(err){
+        alert('Error! '+err)
+      }
     }
   };
+
+  let verifyUser = async () => {
+    try{
+      let res = await profile.gmail_login()
+      if(res) setVerified(true)
+    } catch(err){
+      alert('Profile Verification Error! '+err)
+    }
+  }
+
   //  var x=true;
-  useEffect(()=>{
+  useEffect(() => {
     // console.log(window.matchMedia("max-width('700px')"))
     setMobile(window.matchMedia("max-width('700px')").matches)
   })
   return (
     <>
-    <SideNav visibility={props.visibility} togglesidebar={props.togglesidebar}></SideNav>
+      <SideNav visibility={props.visibility} togglesidebar={props.togglesidebar}></SideNav>
       <Menu stackable fixed="top" borderless>
         <Container>
           <h1 style={{ margin: 10 }}>
@@ -56,26 +80,26 @@ const PageHeader = (props) => {
             ></Image>
           </h1>
           <Link href="/">
-            <Menu.Item 
-            style={{display:!mobile?(props.visibility?'flex':'none'):'none'}}
-            as="a">
+            <Menu.Item
+              style={{ display: !mobile ? (props.visibility ? 'flex' : 'none') : 'none' }}
+              as="a">
               Home
             </Menu.Item>
           </Link>
           <Link href="marketplace">
             <Menu.Item
-            style={{display:!mobile?(props.visibility?'flex':'none'):'none'}}
-             >Marketplace</Menu.Item>
+              style={{ display: !mobile ? (props.visibility ? 'flex' : 'none') : 'none' }}
+            >Marketplace</Menu.Item>
           </Link>
-          <Menu.Item 
-            style={{display:!mobile?(props.visibility?'flex':'none'):'none'}}
+          <Menu.Item
+            style={{ display: !mobile ? (props.visibility ? 'flex' : 'none') : 'none' }}
             className="headerMenus" as="a">
             Contact Us
           </Menu.Item>
         </Container>
 
         <Menu.Item
-            style={{display:!mobile?(props.visibility?'flex':'none'):'none'}}
+          style={{ display: !mobile ? (props.visibility ? 'flex' : 'none') : 'none' }}
           as="a"
           align="right"
           onClick={async () => {
@@ -83,8 +107,21 @@ const PageHeader = (props) => {
             toggleConnected();
           }}
         >
-          {connected ? `Connected to: ${account.substring(0,6)+"..."+account.substring(account.length-4)}` : "Connect Wallet"}
+          {connected ? `Connected to: ${account.substring(0, 6) + "..." + account.substring(account.length - 4)}` : "Connect Wallet"}
         </Menu.Item>
+        {
+          connected ? (
+            <Menu.Item
+              style={{ display: !mobile ? (props.visibility ? 'flex' : 'none') : 'none', color: verified? 'green': 'red' }}
+              as="a"
+              align="right"
+              onClick={verifyUser}
+            >
+              {verified ? `User Verified` : "Not Verified"}
+            </Menu.Item>
+          ) : (null)
+        }
+
         <Modal
           basic
           onClose={() => setOpen(false)}
@@ -92,15 +129,15 @@ const PageHeader = (props) => {
           open={open}
           size="small"
           trigger={
-            <Menu.Item 
-            style={{display:!mobile?(props.visibility?'flex':'none'):'flex'}}
-             as="a" align="right">
+            <Menu.Item
+              style={{ display: !mobile ? (props.visibility ? 'flex' : 'none') : 'flex' }}
+              as="a" align="right">
               Upload
             </Menu.Item>
           }
         >
           <Modal.Content>
-            <UploadForm/>
+            <UploadForm />
           </Modal.Content>
         </Modal>
         <Menu.Item
