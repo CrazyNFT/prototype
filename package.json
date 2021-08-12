@@ -9,9 +9,10 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "axios": "^0.21.1",
     "buffer": "^6.0.3",
     "carbites": "^1.0.6",
-    "ethers": "^5.4.1",
+    "ethers": "5.0.18",
     "fs": "0.0.1-security",
     "ipfs-api": "^26.1.2",
     "ipfs-core": "^0.8.0",
