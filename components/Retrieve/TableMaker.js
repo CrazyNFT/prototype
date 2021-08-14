@@ -1,18 +1,41 @@
 import React from "react";
 import { Container, Grid } from "semantic-ui-react";
 import NFTCard from "./NFTCard";
-import contacts from "../extras/contacts";
+
+const axios = require('axios');
+let heroku = () => axios.get('https://crazynft.herokuapp.com/getall.php')
+  .then(function (response) {
+    // handle success
+    console.log(response);
+    heroku=response;
+  })
+  .catch(function (error) {
+    // handle error
+    console.log(error);
+  })
+  .then(function () {
+  });
+
+
+
+const response = async () => await fetch("");
+// const db = async () => await response.json();
+// const uri = async () => await fetch(`ipfs://${db.uri}`);
+// const uridb = async () => await db.json();
+// const pic = async () => await fetch(`ipfs://${uridb.nftFile}`);
+// const picdb = async () => await pic.json();
+
+
 
 const TableMaker = () => {
-  return (
-    // <div style={{ margin: "84px 320px" }}>
-      <Grid centered container stackable doubling style={{ marginTop: "7em", textAlign: "center" }}>
-        
-      <br></br>
-      <br></br>
-        <Grid.Row columns={3}>
-          {contacts.map((ele,idx)=>{
-            return(
+
+  // response();
+  // console.log(contacts);
+  console.log(heroku());
+  return (    
+    <div style={{ margin: "84px 320px" }}>
+      {/* <Grid columns={3} relaxed style={{ margin: "auto" }}>
+        <Grid.Row>
           <Grid.Column>
             <NFTCard
               name={ele.name}
@@ -25,8 +48,8 @@ const TableMaker = () => {
           })
         }
         </Grid.Row>
-      </Grid>
-    // </div>
-  );
+      </Grid> */}
+    </div>
+   );
 };
 export default TableMaker;
