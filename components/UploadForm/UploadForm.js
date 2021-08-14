@@ -1,7 +1,7 @@
 import React from "react";
 
 const IPFS = require('ipfs-mini')
-const ipfs = new IPFS({host: 'ipfs.infura.io', post: 5001, protocol: 'https'});
+const ipfs = new IPFS({ host: 'ipfs.infura.io', post: 5001, protocol: 'https' });
 const buffer = require('buffer');
 const fetch = require("node-fetch");
 const ethers = require('ethers');
@@ -25,11 +25,13 @@ import {
 import { useForm, Controller } from "react-hook-form";
 import styles from "@/styles/UploadForm.module.css";
 
+import NFT from '../../services/models/nft'
 
 
-async function fetchAsync (url) {
-  
-  
+
+async function fetchAsync(url) {
+
+
   let response = await fetch(url);
   let data = await response.json();
   return data;
@@ -96,7 +98,7 @@ function base64ArrayBuffer(arrayBuffer) {
 }
 
 export default function UploadForm() {
-  
+
   const { handleSubmit, control } = useForm();
   let provider = new ethers.providers.Web3Provider(window.web3.currentProvider);
   let signer = provider.getSigner();
@@ -108,36 +110,36 @@ export default function UploadForm() {
   const [success, setSuccess] = React.useState(false);
   const validFileTypes = ["image/jpeg", "image/jpg", "image/png", "image/gif"];
 
-  async function getVoucher(tokenId, uri, minPrice=0, signer){
+  async function getVoucher(tokenId, uri, minPrice = 0, signer) {
     const chainId = "80001";
-        const domain = {
-          name: "LazyNFT-Voucher",
-          version: "1",
-          verifyingContract: "0x138fFdDd2efCa4992AE8bBB8C8d74Ced6Db2AF4F",
-          chainId,
-        }
-    
-    
-        const voucher = { tokenId, uri, minPrice }
-        
-        const types = {
-          NFTVoucher: [
-            {name: "tokenId", type: "uint256"},
-            {name: "minPrice", type: "uint256"},
-            {name: "uri", type: "string"},  
-          ]
-        }
-        const signature = await signer._signTypedData(domain, types, voucher)
-        return signature;
-    
-        // console.log( {
-        //   ...voucher,
-        //   signature,
-        // })
+    const domain = {
+      name: "LazyNFT-Voucher",
+      version: "1",
+      verifyingContract: "0x138fFdDd2efCa4992AE8bBB8C8d74Ced6Db2AF4F",
+      chainId,
     }
 
+
+    const voucher = { tokenId, uri, minPrice }
+
+    const types = {
+      NFTVoucher: [
+        { name: "tokenId", type: "uint256" },
+        { name: "minPrice", type: "uint256" },
+        { name: "uri", type: "string" },
+      ]
+    }
+    const signature = await signer._signTypedData(domain, types, voucher)
+    return signature;
+
+    // console.log( {
+    //   ...voucher,
+    //   signature,
+    // })
+  }
+
   const handleFile = (event) => {
-    
+
     if (event.target.files.length === 0) {
       setFile({ obj: "", error: true, errorMessage: "Media required" });
     } else if (!validFileTypes.includes(event.target.files[0].type)) {
@@ -164,27 +166,37 @@ export default function UploadForm() {
         error: false,
         errorMessage: "",
       });
-      
-    //   const prefix = `data:${event.target.files[0].type};base64,`;
-    //  const buf = buffer.Buffer(String(reader.result));
-    //  const base64buf = prefix + base64ArrayBuffer(buf);
+
+      //   const prefix = `data:${event.target.files[0].type};base64,`;
+      //  const buf = buffer.Buffer(String(reader.result));
+      //  const base64buf = prefix + base64ArrayBuffer(buf);
       // ipfs.add(base64buf, (err, hash) => {
       //   if(err){
       //     return console.log(err);
       //   }
       //   const imgHash = hash;
       // })
-  
+
       //console.info(cid)
-        }
+    }
   };
 
 
 
-// TODO: retrive the json file from "ipfs://{hash} by using the passed hash value, and append it to @/components/extras/listed.json"
-// let append = async(hash) => {}
+  // TODO: retrive the json file from "ipfs://{hash} by using the passed hash value, and append it to @/components/extras/listed.json"
+  // let append = async(hash) => {}
 
-
+  let saveNFT = async(nftData)=>{
+    try{
+      let nft = new NFT()
+      let res = await nft.createNFT(nftData)
+      if(res){
+        console.log('NFT Data ', res)
+      }
+    } catch(err){
+      alert('Error! '+err)
+    }
+  }
 
 
   return (
@@ -197,7 +209,7 @@ export default function UploadForm() {
               const buf = buffer.Buffer(String(file.obj));
               const base64buf = prefix + base64ArrayBuffer(buf);
               ipfs.add(base64buf, (err, hash) => {
-                if(err){
+                if (err) {
                   return console.log(err);
                 }
                 const NFT = {
@@ -206,47 +218,42 @@ export default function UploadForm() {
                   author: user.userName,
                   authorId: user.uid,
                 };
-                console.log(NFT);
+                saveNFT(NFT)
                 //append(hash);
                 ipfs.add(Buffer.from(JSON.stringify(NFT)), (err, hash) => {
-                  if(err){
+                  if (err) {
                     return console.log(err);
                   }
                   // window.web3.eth.getAccounts().then(function(result){
                   //   console.log(result)
                   // })
-                  
-                  window.web3.eth.getAccounts().then(function(account){
-                    fetchAsync(`https://crazynft.herokuapp.com/createvoucher.php?uri=${hash}&price=${data["nftPrice"]}&address=${account[0]}`).then(function(idresult){
-                    const id = idresult["id"]
 
-                    console.log(idresult);
-                    if(idresult.hasOwnProperty('id')){
-                    getVoucher(1, hash, 0, signer).then(function(result){
-                      console.log(result);
-                      fetchAsync(`https://crazynft.herokuapp.com/addvoucher.php?id=${id}&voucher=${result}`).then(function(final){
-                      console.log(final)
-                  
-                  }
-                  )
-                    });
-                  } else {
-                    console.log("Voucher Already exists");
-                  }
-                    
-                  }
-                  )
+                  window.web3.eth.getAccounts().then(function (account) {
+                    fetchAsync(`https://crazynft.herokuapp.com/createvoucher.php?uri=${hash}&price=${data["nftPrice"]}&address=${account[0]}`).then(function (idresult) {
+                      const id = idresult["id"]
+
+                      console.log(idresult);
+                      if (idresult.hasOwnProperty('id')) {
+                        getVoucher(1, hash, 0, signer).then(function (result) {
+                          console.log(result);
+                          fetchAsync(`https://crazynft.herokuapp.com/addvoucher.php?id=${id}&voucher=${result}`).then(function (final) {
+                            console.log(final)
+
+                          }
+                          )
+                        });
+                      } else {
+                        console.log("Voucher Already exists");
+                      }
+
+                    }
+                    )
                   })
-                  
-                  
-                  
-                  
-                  
                 });
-                
+
               })
-              
-              
+
+
               //console.log(NFT);
               setSuccess(true);
             })}
@@ -344,7 +351,7 @@ export default function UploadForm() {
                 header="Success"
                 content={"Your NFT has been submitted for Approval, check the console for hash"}
               />
-              
+
             </Segment>
           </Form>
         </Grid.Column>
