@@ -6,13 +6,13 @@ import { Grid, } from 'semantic-ui-react'
 
 
 const Card2 = () => {
-    return ( 
+    return (
 
-        <Grid stackable container centered columns={3} divided className = "container">
-  
-  
-  </Grid>
-     );
+        <Grid stackable container centered columns={3} divided className="container">
+
+
+        </Grid>
+    );
 }
- 
+
 export default Card2;

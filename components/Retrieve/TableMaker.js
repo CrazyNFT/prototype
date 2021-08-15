@@ -52,8 +52,8 @@ const TableMaker = () => {
   return (
     <div style={{ margin: "84px 320px" }}>
       {
-        nftData && nftData.map((data) => (
-          <Grid columns={3} relaxed style={{ margin: "auto" }}>
+        nftData && nftData.map((data, index) => (
+          <Grid columns={3} relaxed style={{ margin: "auto" }} key={index}>
             <Grid.Row>
               <Grid.Column>
                 <NFTCard
