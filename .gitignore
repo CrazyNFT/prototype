@@ -34,4 +34,4 @@ yarn-error.log*
 .vercel
 
 
-services/firefolder/firedata.json
+# services/firefolder/firedata.json
