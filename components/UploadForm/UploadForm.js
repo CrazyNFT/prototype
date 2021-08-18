@@ -224,6 +224,7 @@ export default function UploadForm() {
                   if (err) {
                     return console.log(err);
                   }
+
                   // window.web3.eth.getAccounts().then(function(result){
                   //   console.log(result)
                   // })

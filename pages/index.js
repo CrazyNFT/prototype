@@ -8,7 +8,7 @@ import { useState } from "react";
 
 export default function Home() {
   // SIDEBAR VISIBILITY STATE
-  const [sidebarVisibility, setsidebarVisibility] = useState(false);
+  const [sidebarVisibility, setsidebarVisibility] = useState(true);
 
   //toggle Sidebar Visibility
   const togglesidebar = () => {
