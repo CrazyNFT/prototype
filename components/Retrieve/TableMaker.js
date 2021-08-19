@@ -28,7 +28,6 @@ const response = async () => await fetch("");
 // const picdb = async () => await pic.json();
 
 
-
 const TableMaker = () => {
 
   const [nftData, setNftData] = useState([])
@@ -51,22 +50,21 @@ const TableMaker = () => {
   // console.log(heroku());
   return (
     <div style={{ margin: "84px 320px" }}>
-      {
-        nftData && nftData.map((data, index) => (
-          <Grid columns={3} relaxed style={{ margin: "auto" }} key={index}>
-            <Grid.Column>
+      <Grid columns={3} relaxed style={{ margin: "auto" }}>
+        {
+          nftData && nftData.map((data, index) => (
+            <Grid.Column  key={index}>
               <Grid.Row>
                 <NFTCard
                   name={data.nftName}
-                  img={'https://ipfs.io/ipfs/'+data.hash} // test
+                  img={'https://ipfs.io/ipfs/' + data.nftName} // test
                   details={data.nftDescription}
                 />
               </Grid.Row>
             </Grid.Column>
-          </Grid>
-        ))
-      }
-
+          ))
+        }
+      </Grid>
     </div>
   );
 };
