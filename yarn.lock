@@ -1801,13 +1801,6 @@
   dependencies:
     "follow-redirects" "^1.10.0"
 
-"axios@^0.21.1":
-  "integrity" "sha512-dKQiRHxGD9PPRIUNIWvZhPTPpl1rf/OxTYKsqKUDjBwYylTvV7SjSHJb9ratfyzM6wCdLCOYLzs73qpg5c4iGA=="
-  "resolved" "https://registry.npmjs.org/axios/-/axios-0.21.1.tgz"
-  "version" "0.21.1"
-  dependencies:
-    "follow-redirects" "^1.10.0"
-
 "axobject-query@^2.2.0":
   "integrity" "sha512-Td525n+iPOOyUQIeBfcASuG6uJsDOITl7Mds5gFyerkWiX7qhUTdYUBlSgNMyVqtSJqwpt1kXGLdUt6SykLMRA=="
   "resolved" "https://registry.npmjs.org/axobject-query/-/axobject-query-2.2.0.tgz"
@@ -3814,14 +3807,7 @@
     "make-dir" "^3.0.2"
     "pkg-dir" "^4.1.0"
 
-"find-up@^2.0.0":
-  "integrity" "sha1-RdG35QbHF93UgndaK3eSCjwMV6c="
-  "resolved" "https://registry.npmjs.org/find-up/-/find-up-2.1.0.tgz"
-  "version" "2.1.0"
-  dependencies:
-    "locate-path" "^2.0.0"
-
-"find-up@^2.1.0":
+"find-up@^2.0.0", "find-up@^2.1.0":
   "integrity" "sha1-RdG35QbHF93UgndaK3eSCjwMV6c="
   "resolved" "https://registry.npmjs.org/find-up/-/find-up-2.1.0.tgz"
   "version" "2.1.0"
@@ -3884,14 +3870,6 @@
   "integrity" "sha512-HWqDgT7ZEkqRzBvc2s64vSZ/hfOceEol3ac/7tKwzuvEyWx3/4UegXh5oBOIotkGsObyk3xznnSRVADBgWSQVg=="
   "resolved" "https://registry.npmjs.org/follow-redirects/-/follow-redirects-1.14.1.tgz"
   "version" "1.14.1"
-<<<<<<< HEAD
-=======
-
-"for-in@^1.0.2":
-  "integrity" "sha1-gQaNKVqBQuwKxybG4iAMMPttXoA="
-  "resolved" "https://registry.npmjs.org/for-in/-/for-in-1.0.2.tgz"
-  "version" "1.0.2"
->>>>>>> fa01b0ca8ca7d7ac6c9cecc42b64c81352087fa6
 
 "foreach@^2.0.5":
   "integrity" "sha1-C+4AUBiusmDQo6865ljdATbsG5k="
@@ -4795,9 +4773,9 @@
     "stream-to-it" "^0.2.2"
 
 "ipfs-utils@^8.1.2":
-  "integrity" "sha512-QJjyRh4KzlkmtAOn/fOHYyjHGuG+Ows7xJGG8eiM/v325VvJhjJ1tWJobI6zrNDeFKjZcx1uNysE3MR2/dSiXQ=="
-  "resolved" "https://registry.npmjs.org/ipfs-utils/-/ipfs-utils-8.1.4.tgz"
-  "version" "8.1.4"
+  "integrity" "sha512-qjERTUy0iXPw5LRPA1OQLzYPjdYb7JQenihYaE0L+yA4NMoC9qhGVrYUqU8yaV0Iu+zk7i6BxoNwg8beWsqjbg=="
+  "resolved" "https://registry.npmjs.org/ipfs-utils/-/ipfs-utils-8.1.5.tgz"
+  "version" "8.1.5"
   dependencies:
     "abort-controller" "^3.0.0"
     "any-signal" "^2.1.0"
@@ -5012,9 +4990,9 @@
   "version" "1.0.2"
 
 "is-core-module@^2.2.0", "is-core-module@^2.4.0":
-  "integrity" "sha512-TXCMSDsEHMEEZ6eCA8rwRDbLu55MRGmrctljsBX/2v1d9/GzqHOxW5c5oPSgrUt2vBFXebu9rGqckXGPWOlYpg=="
-  "resolved" "https://registry.npmjs.org/is-core-module/-/is-core-module-2.5.0.tgz"
-  "version" "2.5.0"
+  "integrity" "sha512-wShG8vs60jKfPWpF2KZRaAtvt3a20OAn7+IJ6hLPECpSABLcKtFKTTI4ZtH5QcBruBHlq+WsdHWyz0BCZW7svQ=="
+  "resolved" "https://registry.npmjs.org/is-core-module/-/is-core-module-2.6.0.tgz"
+  "version" "2.6.0"
   dependencies:
     "has" "^1.0.3"
 
@@ -5787,20 +5765,20 @@
     "secp256k1" "^3.6.2"
 
 "libp2p-crypto@^0.19.0", "libp2p-crypto@^0.19.3", "libp2p-crypto@^0.19.4":
-  "integrity" "sha512-oZaAomSLnEJPEvJaj4Dmp+JDuKsTndbdmdod9rCe8lX5f9hMP3p3wRADOeVGhgleiQ3LH+3XmFuULARMNXLiRw=="
-  "resolved" "https://registry.npmjs.org/libp2p-crypto/-/libp2p-crypto-0.19.6.tgz"
-  "version" "0.19.6"
+  "integrity" "sha512-Qb5o/3WFKF2j6mYSt4UBPyi2kbKl3jYV0podBJoJCw70DlpM5Xc+oh3fFY9ToSunu8aSQQ5GY8nutjXgX/uGRA=="
+  "resolved" "https://registry.npmjs.org/libp2p-crypto/-/libp2p-crypto-0.19.7.tgz"
+  "version" "0.19.7"
   dependencies:
     "err-code" "^3.0.1"
     "is-typedarray" "^1.0.0"
     "iso-random-stream" "^2.0.0"
     "keypair" "^1.0.1"
-    "multiformats" "^9.1.2"
+    "multiformats" "^9.4.5"
     "node-forge" "^0.10.0"
     "pem-jwk" "^2.0.0"
-    "protobufjs" "^6.10.2"
+    "protobufjs" "^6.11.2"
     "secp256k1" "^4.0.0"
-    "uint8arrays" "^2.1.4"
+    "uint8arrays" "^3.0.0"
     "ursa-optional" "^0.10.1"
 
 "libp2p-crypto@~0.12.1":
@@ -6003,14 +5981,14 @@
     "uint8arrays" "^2.0.5"
 
 "libp2p-record@^0.10.0", "libp2p-record@^0.10.3":
-  "integrity" "sha512-KwhdSGubyYDqukO935Ks0RIBG0KIfy2WmQ4Y/fV1bwDJwdd9BIKMiw1ZFpGML7pl2bGew/gs8MdI6nY2baOanQ=="
-  "resolved" "https://registry.npmjs.org/libp2p-record/-/libp2p-record-0.10.4.tgz"
-  "version" "0.10.4"
+  "integrity" "sha512-2HAjCE44xH6mHazduDl/3pZ2kRW6XZNWv1r0etMRtTRAZUsoUbbVRXiMLA7fovMthYEwqsjThXFsOgPsJSQU5A=="
+  "resolved" "https://registry.npmjs.org/libp2p-record/-/libp2p-record-0.10.5.tgz"
+  "version" "0.10.5"
   dependencies:
-    "err-code" "^3.0.0"
-    "multiformats" "^9.1.2"
-    "protobufjs" "^6.10.2"
-    "uint8arrays" "^2.0.5"
+    "err-code" "^3.0.1"
+    "multiformats" "^9.4.5"
+    "protobufjs" "^6.11.2"
+    "uint8arrays" "^3.0.0"
 
 "libp2p-tcp@^0.15.3", "libp2p-tcp@^0.15.4":
   "integrity" "sha512-MqXIlqV7t9z0A1Ww9Omd2XIlndcYOAh5R6kWRZ8Vo/CITazKUC5ZGNoj23hq/aEPaX8p5XmJs2BKESg/OuhGhQ=="
@@ -6633,7 +6611,7 @@
     "uint8arrays" "^2.1.5"
     "varint" "^6.0.0"
 
-"multiformats@^9.0.0", "multiformats@^9.0.4", "multiformats@^9.1.2", "multiformats@^9.4.2":
+"multiformats@^9.0.0", "multiformats@^9.0.4", "multiformats@^9.4.2", "multiformats@^9.4.5":
   "integrity" "sha512-zQxukxsHM34EJi3yT3MkUlycY9wEouyrAz0PSN+CyCj6cYchJZ4LrTH74YtlsxVyAK6waz/gnVLmJwi3P0knKg=="
   "resolved" "https://registry.npmjs.org/multiformats/-/multiformats-9.4.5.tgz"
   "version" "9.4.5"
@@ -6703,9 +6681,9 @@
     "nodeify" "^1.0.1"
 
 "multistream-select@^2.0.0":
-  "integrity" "sha512-MhzWeoIh2Rojqm32glGNmWbzyffrGrYtg68sWKwj8ZuALHGDySNiU5j6wV69BpUtKRQmQ6zWNUB5few57VB7/w=="
-  "resolved" "https://registry.npmjs.org/multistream-select/-/multistream-select-2.0.0.tgz"
-  "version" "2.0.0"
+  "integrity" "sha512-ziVNT/vux0uUElP4OKNMVr0afU/X6PciAmT2UJNolhzhSLXIwFAaYfmLajD8NoZ+DsBQ1bp0zZ2nMVPF+FhClA=="
+  "resolved" "https://registry.npmjs.org/multistream-select/-/multistream-select-2.0.1.tgz"
+  "version" "2.0.1"
   dependencies:
     "bl" "^5.0.0"
     "debug" "^4.1.1"
@@ -6716,7 +6694,7 @@
     "it-pipe" "^1.0.1"
     "it-reader" "^3.0.0"
     "p-defer" "^3.0.0"
-    "uint8arrays" "^2.1.4"
+    "uint8arrays" "^3.0.0"
 
 "murmurhash3js-revisited@^3.0.0":
   "integrity" "sha512-/sF3ee6zvScXMb1XFJ8gDsSnY+X8PbOyjIuBhtgis10W2Jx4ZjIhikUCIF9c4gpJxVnQIsPAFrSwTCuAjicP6g=="
@@ -6952,9 +6930,9 @@
     "vm-browserify" "^1.0.1"
 
 "node-releases@^1.1.71":
-  "integrity" "sha512-caJBVempXZPepZoZAPCWRTNxYQ+xtG/KAi4ozTA5A+nJ7IU+kLQCbqaUjb5Rwy14M9upBWiQ4NutcmW04LJSRw=="
-  "resolved" "https://registry.npmjs.org/node-releases/-/node-releases-1.1.74.tgz"
-  "version" "1.1.74"
+  "integrity" "sha512-Qe5OUajvqrqDSy6wrWFmMwfJ0jVgwiw4T3KqmbTcZ62qW0gQkheXYhcFM1+lOVcGUoRxcEcfyvFMAnDgaF1VWw=="
+  "resolved" "https://registry.npmjs.org/node-releases/-/node-releases-1.1.75.tgz"
+  "version" "1.1.75"
 
 "nodeify@^1.0.1":
   "integrity" "sha1-ZKtpp7268DzhB7TwM1yHwLnpGx0="
@@ -7705,7 +7683,7 @@
     "retry" "^0.12.0"
     "signal-exit" "^3.0.2"
 
-"protobufjs@^6.10.0", "protobufjs@^6.10.1", "protobufjs@^6.10.2":
+"protobufjs@^6.10.0", "protobufjs@^6.10.1", "protobufjs@^6.10.2", "protobufjs@^6.11.2":
   "integrity" "sha512-4BQJoPooKJl2G9j3XftkIXjoC9C0Av2NOrWmbLWT1vH32GcSUHjM0Arra6UfTsVyfMAuFzaLucXn1sadxJydAw=="
   "resolved" "https://registry.npmjs.org/protobufjs/-/protobufjs-6.11.2.tgz"
   "version" "6.11.2"
@@ -8933,9 +8911,9 @@
     "xtend" "^4.0.0"
 
 "tar@^4.0.2":
-  "integrity" "sha512-q7OwXq6NTdcYIa+k58nEMV3j1euhDhGCs/VRw9ymx/PbH0jtIM2+VTgDE/BW3rbLkrBUXs5fzEKgic5oUciu7g=="
-  "resolved" "https://registry.npmjs.org/tar/-/tar-4.4.17.tgz"
-  "version" "4.4.17"
+  "integrity" "sha512-a20gEsvHnWe0ygBY8JbxoM4w3SJdhc7ZAuxkLqh+nvNQN2IOt0B5lLgM490X5Hl8FF0dl0tOf2ewFYAlIFgzVA=="
+  "resolved" "https://registry.npmjs.org/tar/-/tar-4.4.19.tgz"
+  "version" "4.4.19"
   dependencies:
     "chownr" "^1.1.4"
     "fs-minipass" "^1.2.7"
@@ -9190,6 +9168,13 @@
   "integrity" "sha512-Q9/hhJa2836nQfEJSZTmr+pg9+cDJS9XEAp7N2Vg5MzL3bK/mkMVfjscRGYruP9jNda6MAdf4QD/y78gSzkp6A=="
   "resolved" "https://registry.npmjs.org/uint8arrays/-/uint8arrays-2.1.10.tgz"
   "version" "2.1.10"
+  dependencies:
+    "multiformats" "^9.4.2"
+
+"uint8arrays@^3.0.0":
+  "integrity" "sha512-HRCx0q6O9Bfbp+HHSfQQKD7wU70+lydKVt4EghkdOvlK/NlrF90z+eXV34mUd48rNvVJXwkrMSPpCATkct8fJA=="
+  "resolved" "https://registry.npmjs.org/uint8arrays/-/uint8arrays-3.0.0.tgz"
+  "version" "3.0.0"
   dependencies:
     "multiformats" "^9.4.2"
 
