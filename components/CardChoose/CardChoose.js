@@ -1,17 +1,33 @@
-import React, {useContext} from "react";
-import Card from "react-credit-cards";
-import { Container, Image, Button, Modal } from "semantic-ui-react";
-import BuyForm from "../BuyForm/BuyForm"
-import account from "../PageHeader/PageHeader"
+import React from "react";
+import { Container, Button } from "semantic-ui-react";
+import {
+  createCard,
+  getBalance,
+  sendTransaction,
+  withdrawTransaction,
+} from "./Circle";
+// import BuyForm from "../BuyForm/BuyForm"
+// import account from "../PageHeader/PageHeader"
+// import Card from "react-credit-cards";
 
-const CardChoose =()=>{
-    return(
-    <Container >
-    <Button onClick="createCard();" style={{margin:"10px"}}>Create a new card</Button>
-    <Button onClick="sendTransaction();" style={{margin:"10px"}}>Send Money</Button>
-    <Button onClick="getBalance();" style={{margin:"10px"}}>Get Account balance</Button>
-    <Button onClick="withdrawTransaction();" style={{margin:"10px"}}>Withdraw Transaction</Button>
+const CardChoose = () => {
+  const btnStyle = { margin: "10px", minWidth: "200px" };
+
+  return (
+    <Container>
+      <Button onClick="createCard();" style={{ ...btnStyle }}>
+        Create a new card
+      </Button>
+      <Button onClick="sendTransaction();" style={{ ...btnStyle }}>
+        Send Money
+      </Button>
+      <Button onClick="getBalance();" style={{ ...btnStyle }}>
+        Get Account balance
+      </Button>
+      <Button onClick="withdrawTransaction();" style={{ ...btnStyle }}>
+        Withdraw Transaction
+      </Button>
     </Container>
-);
-}
-export default CardChoose
+  );
+};
+export default CardChoose;
