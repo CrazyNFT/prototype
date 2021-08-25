@@ -24,10 +24,10 @@ a {
   top: 0;
   margin: 10px;
 }
-@media only screen and (max-width: 800px){
-.item.headerMenus {
-  display: none !important;
-}
+@media only screen and (max-width: 800px) {
+  .item.headerMenus {
+    display: none !important;
+  }
 }
 .card {
   border-radius: 25px;
@@ -52,4 +52,8 @@ a {
   width: 200px;
   height: 140px;
   align-self: center;
+}
+
+.ui.selection.dropdown {
+  min-width: min-content;
 }
