@@ -2,6 +2,7 @@ import React from "react";
 import { Container, Form, Button, Icon } from "semantic-ui-react";
 import { useForm, Controller } from "react-hook-form";
 import { useRouter } from "next/router";
+import { createCard } from "@/components/CardChoose/Circle";
 
 export default function CardForm() {
   const { handleSubmit, control } = useForm();
@@ -230,9 +231,11 @@ export default function CardForm() {
 
   const countries = [{ key: "IND", text: "India", value: "India" }];
 
+  // SUBMITTED DATA IS SENT HERE
   function submitHandler(data) {
     setStatus("Card Saved");
     console.log(data);
+    createCard(data);
   }
 
   return (
@@ -268,7 +271,7 @@ export default function CardForm() {
           <div className="fields">
             <div className="seven wide field">
               <Controller
-                name="cardNumber"
+                name="card"
                 control={control}
                 rules={{
                   required: { value: true, message: "Card Number Required" },
@@ -293,7 +296,7 @@ export default function CardForm() {
             </div>
             <div className="three wide field">
               <Controller
-                name="CVV"
+                name="cvv"
                 control={control}
                 rules={{
                   required: { value: true, message: "CVV Required" },
@@ -322,7 +325,7 @@ export default function CardForm() {
               <div className="two fields">
                 <div className="field">
                   <Controller
-                    name="expireYear"
+                    name="expYear"
                     control={control}
                     rules={{
                       required: { value: true, message: "Year Required" },
@@ -348,7 +351,7 @@ export default function CardForm() {
                 </div>
                 <div className="field">
                   <Controller
-                    name="expireMonth"
+                    name="expMonth"
                     control={control}
                     rules={{
                       required: { value: true, message: "Month required" },
@@ -395,7 +398,7 @@ export default function CardForm() {
               </div>
               <div className="field">
                 <Controller
-                  name="phone"
+                  name="phoneNumber"
                   control={control}
                   rules={{
                     required: { value: true, message: "Phone number Required" },
@@ -441,7 +444,7 @@ export default function CardForm() {
             <div className="fields">
               <div className="twelve wide field">
                 <Controller
-                  name="address"
+                  name="line1"
                   control={control}
                   rules={{
                     required: { value: true, message: "Address Required" },
@@ -462,7 +465,7 @@ export default function CardForm() {
               </div>
               <div className="four wide field">
                 <Controller
-                  name="pin"
+                  name="postalCode"
                   control={control}
                   rules={{
                     required: { value: true, message: "Pin code Required" },
@@ -511,7 +514,7 @@ export default function CardForm() {
             </div>
             <div className="field">
               <Controller
-                name="state"
+                name="district"
                 control={control}
                 rules={{
                   required: { value: true, message: "State required" },
