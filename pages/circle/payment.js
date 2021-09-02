@@ -3,26 +3,27 @@ import { Container, Form, Button, Icon } from "semantic-ui-react";
 import { useForm, Controller } from "react-hook-form";
 import { useRouter } from "next/router";
 import { sendTransaction } from "@/components/CardChoose/Circle";
+import CircleApiResponse from "@/components/CardChoose/CircleResponse";
 
 export default function CardForm() {
   const { handleSubmit, control } = useForm();
   const [status, setStatus] = React.useState("Make Payment");
+  const [response, setResponse] = React.useState("");
   const router = useRouter();
 
   const accTypes = [
-    { key: "card", text: "Card", value: "card" },
-    { key: "ach", text: "ACH", value: "ach" },
+    { key: "card", text: "card", value: "card" },
+    { key: "ach", text: "ach", value: "ach" },
   ];
 
   const vMethods = [
-    { key: "cvv", text: "CVV", value: "cvv" },
+    { key: "cvv", text: "cvv", value: "cvv" },
     { key: "threed", text: "Three_d", value: "three_d_secure" },
   ];
 
-  function submitHandler(data) {
-    console.log(data);
-    const res = sendTransaction(data);
-    console.log(res);
+  async function submitHandler(data) {
+    const res = await sendTransaction(data);
+    setResponse(JSON.stringify(res, null, 2));
     setStatus("Payment Made");
   }
 
@@ -191,9 +192,6 @@ export default function CardForm() {
               <Controller
                 name="verificationSuccessUrl"
                 control={control}
-                rules={{
-                  required: { value: true, message: "required" },
-                }}
                 render={({ field, fieldState }) => (
                   <>
                     <label>Verification Success URL</label>
@@ -212,9 +210,6 @@ export default function CardForm() {
               <Controller
                 name="verificationFailureUrl"
                 control={control}
-                rules={{
-                  required: { value: true, message: "required" },
-                }}
                 render={({ field, fieldState }) => (
                   <>
                     <label>Verification Failure URL</label>
@@ -254,9 +249,6 @@ export default function CardForm() {
                 <Controller
                   name="channel"
                   control={control}
-                  rules={{
-                    required: { value: true, message: "Channel Required" },
-                  }}
                   render={({ field, fieldState }) => (
                     <>
                       <label>Channel</label>
@@ -279,9 +271,6 @@ export default function CardForm() {
                 <Controller
                   name="name"
                   control={control}
-                  rules={{
-                    required: { value: true, message: "Name Required" },
-                  }}
                   render={({ field, fieldState }) => (
                     <>
                       <label>Name</label>
@@ -346,8 +335,16 @@ export default function CardForm() {
           >
             {status}
           </Button>
+          <Button
+            disabled={status === "Make Payment"}
+            onClick={() => setStatus("Make Payment")}
+          >
+            Try Again
+          </Button>
         </Form>
       </Container>
+      <br />
+      {response != "" && <CircleApiResponse res={response} />}
     </div>
   );
 }
